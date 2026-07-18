@@ -75,8 +75,17 @@ cd backend
 Open your web browser and go to:
 👉 **[http://127.0.0.1:8000/](http://127.0.0.1:8000/)**
 
-### 4. Connect the Hardware (Active Streaming)
-Connect your Arduino Uno circuit to the computer via USB, verify it is mapped to `COM5` (or adjust in `serial_bridge.py`), and launch the bridge:
+### 4. Upload Firmware to Arduino Uno
+Before streaming real-time telemetry, flash the controller firmware:
+1. Open the **Arduino IDE** on your computer.
+2. Open the sketch file **[Monitor/Monitor.ino](./Monitor/Monitor.ino)**.
+3. Open the **Library Manager** (Ctrl+Shift+I or Sketch > Include Library > Manage Libraries), search for **"DHT sensor library" by Adafruit**, and install it (along with any required dependencies).
+4. Connect the Arduino Uno to your PC via USB.
+5. In the Arduino IDE, select the Board as **Arduino Uno** and choose your active COM Port under Tools > Port.
+6. Click **Upload** to flash the program to the board.
+
+### 5. Launch the Serial Bridge (Active Streaming)
+Once the firmware is flashed, make sure the serial port matches the configuration in `backend/serial_bridge.py` (defaults to `COM5` on Windows), then launch the Python serial bridge script to start the telemetry stream:
 ```bash
 cd backend
 ..\.venv\Scripts\python.exe serial_bridge.py
