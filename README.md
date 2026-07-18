@@ -111,12 +111,20 @@ This project functions as a prototype/proof-of-concept for cyber-physical utilit
 
 ---
 
-## 📝 Add This to Your Resume!
+## 🌐 Large-Scale Application & Industrial Architecture
 
-Since this is a unique Cyber-Physical System (CPS) project, here is how you can write about it on your resume to impress interviewers:
+While this repository is a low-budget, single-point hardware prototype, the underlying cyber-physical monitoring design can be scaled to municipal or industrial smart grids. A production-grade implementation would evolve in the following way:
 
-> ### **VoltStream & HydroFlow: Smart Utility Grid Monitor & Anomaly Detector**
-> * **Hardware-in-the-Loop Simulation**: Integrated physical sensors and analog potentiometers with an Arduino Uno microcontroller, streaming real-time utility telemetry (Voltage, Active Power, Water Flow) to a local workstation over a custom USB serial bridge.
-> * **Unsupervised AI Anomaly Detection**: Built and trained an unsupervised `IsolationForest` model on daily utility profiles to automatically classify multi-dimensional telemetry as normal or anomalous at the edge.
-> * **Root-Cause Diagnostics Classifier**: Implemented a rules-based diagnostic overlay engine that categorizes anomalies into specific hardware faults (e.g. pipe leaks, grid brownouts, appliance short-circuits) with detailed actionable descriptions.
-> * **Real-Time Visualization & Alerts**: Created a WebSocket-powered dark-mode glassmorphic dashboard with live scrolling multi-axis Chart.js graphs, system health gauges, and physical buzzer alarm feedback based on AI classification.
+### 1. Edge Computing & IoT Protocol Upgrades
+*   **Protocols**: Instead of a local USB-to-serial connection, smart meters would stream telemetry over wireless networks using lightweight protocols like **MQTT**, **CoAP**, or **AMQP** secured with TLS.
+*   **Edge Devices**: Physical Arduino boards would be replaced by dedicated edge-computing nodes (like ESP32, Raspberry Pi Compute Module, or specialized industrial RTUs) that run lightweight anomaly detection locally before sending data to the cloud.
+
+### 2. Scalable Cloud Data Pipeline
+*   **Ingestion**: FastAPI and SQLite would be replaced by cloud-scale ingestion engines like **Apache Kafka** or **AWS Kinesis** to ingest millions of concurrent messages from thousands of household meters.
+*   **Storage**: Time-series telemetry would be stored in dedicated databases optimized for high write-speeds and analytical queries, such as **TimescaleDB**, **InfluxDB**, or **Amazon Timestream**.
+
+### 3. Distributed Machine Learning
+*   **Training**: Isolation Forest models would be trained asynchronously on distributed clusters (e.g., using **Apache Spark / MLlib**) to generate regional usage baseline models.
+*   **Inference**: Models would be serialized (using ONNX or TensorFlow Lite) and deployed directly to edge nodes or served as serverless microservices (e.g., AWS Lambda) to perform instant outlier classification close to the sensors.
+
+
