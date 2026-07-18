@@ -143,19 +143,13 @@ body::after {
 
 .premium-title {
     font-size: 1.35rem;
-    font-weight: 700;
+    font-weight: 800;
     color: #ffffff;
     font-family: 'Outfit', sans-serif;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
     white-space: nowrap;
     margin: 0;
     line-height: 1.2;
-}
-
-.premium-title strong {
-    font-weight: 850;
-    color: #ffffff;
-    letter-spacing: 0.05em;
 }
 
 .subtitle {
