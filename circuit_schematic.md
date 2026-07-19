@@ -1,4 +1,4 @@
-# VoltStream & HydroFlow: Arduino Uno Prototype Circuit Schematic
+# AEGIS : Arduino Uno Prototype Circuit Schematic
 
 This document contains the wiring schematic and connection pinouts for the physical prototype. It is formatted for inclusion in your report, portfolio, or presentation.
 
